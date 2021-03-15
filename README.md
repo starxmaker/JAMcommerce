@@ -1,48 +1,36 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
+# JAMcommerce
+A basic Jamstack template to set up a e-commerce website [WIP].
 
-## 🚀 Quick start
+## Objectives
 
-1.  **Create a Gatsby site.**
+The following template aims to achieve the following requirements
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+1. A low budget
+2. Vendor independence (i.e. Your website and data does not critically depend on others)
+3. Multilingüal backend (i.e. Not just English)
+4. Custom payment gateway
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+It is possible to reduce even more the budget if you make some sacrifices on objectives 2 and 3 (You could even setup a site free), but for long-term convenience and better UX for non-english-speaking customers, this projects aims to achieve the above objectives. Nevertheless, You can easily implement other options just editing a few lines of code.
 
-2.  **Start developing.**
+## Stack
 
-    Navigate into your new site’s directory and start it up.
+One of the main advantages of JAMstack is the ability to use whatever technology seems more appropiate for a context. Consequently, the technology stack used for this project is the following:
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+### Front end framework - Gatsby
 
-3.  **Open the code and start customizing!**
+Gatsby is one of the most popular options in terms of Static Site Generators. Its main advantage is it doesn't require a server to compile the code in every request. Instead, it just requires a server that hosts static files and builds the code when a webhook is triggered. Consequently, its model heavily reduces the server costs.
 
-    Your site is now running at http://localhost:8000!
+### CMS - Directus CMS  (+ Postgres + DigitalOcean / Vultr / AWS Lightsail small instance + Dokku for multitenancy)
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+Sanity and Contentful are amazing. Both offer a generous free quota and they're amazing if you have a low budget. Nevertheless, your data will be stored on their servers, so it makes migration a bit difficult. In addition, both lacks on multilingual support in the content editor, so it does not meet our requirements. Good self-hosted multilingual options are Strapi and Directus. However, we choose the latter because it is very lightweight (you can easily run multiple instances on a $5 Digital Ocean Droplet with Dokku) and it offers endpoints, which are useful for stock management and payment processing.
 
-4.  **Learn more**
+### Payment gateway - Flow.cl or Stripe
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+This choice is context-dependant. Flow.cl is a easy and inexpensive way to access WebPay, a very used checkout platform used in Chile. For countries where it is available, there is also an option for Stripe. If your country use another payment gateway, feel free to use it.
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+## Front End documentation
 
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+For the Backend documentation, check the following [link](https://github.com/starxmaker/JAMCommerce_BE).
 
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+TODO
 
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
